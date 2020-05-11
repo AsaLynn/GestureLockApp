@@ -1,0 +1,3 @@
+rootProject.name='GestureLockApp'
+include ':app'
+include ':gesturelockview'

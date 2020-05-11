@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECF1F5"
+    tools:context=".MainActivity">
+
+    <com.zxn.titleview.TitleView
+        android:id="@+id/title_common"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_title_height"
+        android:background="@color/colorPrimaryDark"
+        app:backIcon="@drawable/icon_return"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleText="安全"
+        app:titleTextColor="@color/c_ffffff" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_my_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_30"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_common"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightText="未绑定"
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="绑定手机"
+        app:textColor="@color/c_666666" />
+
+    <RelativeLayout
+        android:id="@+id/rl_pin_pw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/c_ffffff"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iiv_my_wallet">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="PIN密码"
+            android:textColor="@color/c_666666"
+            android:visibility="visible" />
+
+        <com.zxn.widget.SwitchButton
+            android:id="@+id/sb_pin"
+            app:sb_checked_color="#FFBB2E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_10"
+            app:sb_border_width="@dimen/dp_1"
+            app:sb_checked="false"
+            app:sb_show_indicator="false"
+            app:sb_uncheckcircle_radius="@dimen/dp_10" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_lock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/c_ffffff"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_pin_pw">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="手势密码"
+            android:textColor="@color/c_666666"
+            android:visibility="visible" />
+
+        <com.zxn.widget.SwitchButton
+            android:id="@+id/sb_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_10"
+            app:sb_border_width="@dimen/dp_1"
+            app:sb_checked="false"
+            app:sb_checked_color="#FFBB2E"
+            app:sb_show_indicator="false"
+            app:sb_uncheckcircle_radius="@dimen/dp_10" />
+
+    </RelativeLayout>
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_update_lock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_lock"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="修改手势密码"
+        app:textColor="@color/c_666666" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_clear_lock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iiv_update_lock"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="清除手势密码"
+        app:textColor="@color/c_666666" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
