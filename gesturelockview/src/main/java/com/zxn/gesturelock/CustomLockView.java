@@ -620,12 +620,12 @@ public class CustomLockView extends View {
         /**
          * 画完了
          */
-        public void onComplete(int[] indexs);
+        void onComplete(int[] indexs);
 
         /**
          * 绘制错误
          */
-        public void onError();
+        void onError();
     }
 
     public int getErrorTimes() {
@@ -636,11 +636,11 @@ public class CustomLockView extends View {
         this.errorTimes = errorTimes;
     }
 
-    public int[] getmIndexs() {
+    public int[] getIndexs() {
         return mIndexs;
     }
 
-    public void setmIndexs(int[] mIndexs) {
+    public void setIndexs(int[] mIndexs) {
         this.mIndexs = mIndexs;
     }
 

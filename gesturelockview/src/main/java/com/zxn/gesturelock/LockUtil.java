@@ -2,7 +2,7 @@ package com.zxn.gesturelock;
 
 
 import android.content.Context;
-
+import android.text.TextUtils;
 
 
 /**
@@ -11,12 +11,10 @@ import android.content.Context;
  */
 public class LockUtil {
 
-    //private static UserDBHelper helper;
-
     /**
-     * 1=30度 2=45度 4=60度
-     *
-     * @return
+     * @param x float
+     * @param y float
+     * @return float
      */
     public static float switchDegrees(float x, float y) {
         return (float) MathUtil.pointTotoDegrees(x, y);
@@ -25,9 +23,9 @@ public class LockUtil {
     /**
      * 获取角度
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a Point
+     * @param b Point
+     * @return float
      */
     public static float getDegrees(Point a, Point b) {
         float ax = a.x;// a.index % 3;
@@ -79,12 +77,12 @@ public class LockUtil {
     /**
      * 判断一个点是否在圆内
      *
-     * @param sx
-     * @param sy
-     * @param r
-     * @param x
-     * @param y
-     * @return
+     * @param sx float
+     * @param sy float
+     * @param r  float
+     * @param x  float
+     * @param y  float
+     * @return boolean
      */
     public static boolean checkInRound(float sx, float sy, float r, float x, float y) {
         //Math.sqrt正确舍入的一个double值的正平方根
@@ -94,32 +92,20 @@ public class LockUtil {
     /**
      * 清空本地密码
      *
-     * @param context
+     * @param context Context
      */
     public static void clearPwd(Context context) {
-        SPUtil.saveData(context,"handpswd", "");
-        /*if (helper == null) {
-            helper = new UserDBHelper(context);
-        }
-        UserInfo userInfo = helper.getOneByName(SPUtil.getData("phoneNumber", "").toString());//phoneNumber
-        userInfo.setHandpswd("");
-        helper.updateUser(userInfo);*/
+        SPUtil.saveData(context, "handpswd", "");
     }
 
     /**
      * 获取本地密码
      *
-     * @return
+     * @param context Context
+     * @return 密码数组.
      */
     public static int[] getPwd(Context context) {
-
-        String str = (String) SPUtil.getData(context,"handpswd", "");
-        /*if (helper == null) {
-            helper = new UserDBHelper(UIUtils.getContext());
-        }
-        UserInfo userInfo = helper.getOneByName(SPUtil.getData("phoneNumber", "").toString());
-        String str = userInfo.getHandpswd();*/
-
+        String str = (String) SPUtil.getData(context, "handpswd", "");
         if (str != null) {
             String[] s = str.split(",");
             int[] indexs = new int[s.length];
@@ -133,65 +119,50 @@ public class LockUtil {
         return new int[]{};
     }
 
+
     /**
-     * 是否开启手势密码
-     * true:开启 false:关闭
+     * 设置是否开启手势密码
+     *
+     * @param context Context
+     * @param flag    true:开启 false:关闭
      */
-    /*public static void setPwdStatus(Context context, boolean flag){
-       // PreferencesUtils.putBoolean(context, "isopenpwd", flag);
-         SPUtil.saveData( "isopenpwd", flag);
-    }*/
-    public static void setPwdStatus(Context context,boolean flag) {
-        SPUtil.saveData(context,"isopenpwd", flag);
-        /*if (helper == null) {
-            helper = new UserDBHelper(UIUtils.getContext());
-        }
-        UserInfo userInfo = helper.getOneByName(SPUtil.getData("phoneNumber", "").toString());//phoneNumber
-        userInfo.setPwdStatus(flag);
-        helper.updateUser(userInfo);*/
+    public static void setPwdStatus(Context context, boolean flag) {
+        SPUtil.saveData(context, "isopenpwd", flag);
     }
 
-    /**
-     * 获取当前是否开启手势密码
-     * true:开启 false:关闭
-     *
-     * @return
-     */
-    /*public static boolean getPwdStatus(Context context){
-        //return PreferencesUtils.getBoolean(context,"isopenpwd",false);
-        return (boolean) SPUtil.getData("isopenpwd",false);
-    }*/
-    public static boolean getPwdStatus(Context context) {
-        boolean pwdStatus = false;
-        /*if (helper == null) {
-            helper = new UserDBHelper(UIUtils.getContext());
-        }
-        UserInfo userInfo = helper.getOneByName(SPUtil.getData("phoneNumber", "").toString());
-        if (userInfo != null)
-            pwdStatus = userInfo.isPwdStatus();
-        return pwdStatus;*/
 
-        return (boolean) SPUtil.getData(context,"isopenpwd", false);
+    /**
+     * 取当前是否开启手势密码
+     *
+     * @param context Context
+     * @return true:开启 false:关闭
+     */
+    public static boolean getPwdStatus(Context context) {
+        return (boolean) SPUtil.getData(context, "isopenpwd", false);
     }
 
     /**
      * 将密码设置到本地
      *
-     * @param context
-     * @param mIndexs
+     * @param context Context
+     * @param mIndexs 密码数字.
      */
     public static void setPwdToDisk(Context context, int[] mIndexs) {
         String str = "";
         for (int i : mIndexs) {
             str += i + ",";
         }
-        SPUtil.saveData(context,"handpswd", str);
+        SPUtil.saveData(context, "handpswd", str);
+    }
 
-        /*if (helper == null) {
-            helper = new UserDBHelper(context);
-        }
-        UserInfo userInfo = helper.getOneByName(SPUtil.getData("phoneNumber", "").toString());//phoneNumber
-        userInfo.setHandpswd(str);
-        helper.updateUser(userInfo);*/
+    /**
+     * 判断是否已经创建了密码.
+     *
+     * @param context Context
+     * @return boolean:true:已经创建了密码.false:还未创建密码.
+     */
+    public static boolean isPwdCreated(Context context) {
+        String str = (String) SPUtil.getData(context, "handpswd", "");
+        return !TextUtils.isEmpty(str);
     }
 }

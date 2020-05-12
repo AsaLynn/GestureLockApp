@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GestureLockApp</string>
+    <string name="text_title_pin_setting">创建PIN密码</string>
 </resources>
