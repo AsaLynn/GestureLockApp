@@ -3,18 +3,21 @@ package zxn.gesturelock.app;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.zxn.gesturelock.LockUtil;
-import com.zxn.iconitemview.IconItemView;
-import com.zxn.presenter.model.CommonEvent;
-import com.zxn.presenter.view.BaseActivity;
-import com.zxn.titleview.TitleView;
-import com.zxn.widget.SwitchButton;
+//import com.zxn.presenter.model.CommonEvent;
+//import com.zxn.presenter.view.BaseActivity;
+//import com.zxn.presenter.model.CommonEvent;
+//import zxn.widget.SwitchButton;
+
+//import org.greenrobot.eventbus.Subscribe;
 
 import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import zxn.widget.SwitchButton;
 
 import static zxn.gesturelock.app.IEventConstants.EVENT_CREATE_GESTURE_LOCK;
 
@@ -24,9 +27,9 @@ import static zxn.gesturelock.app.IEventConstants.EVENT_CREATE_GESTURE_LOCK;
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.title_common)
-    TitleView titleCommon;
+    TextView titleCommon;
     @BindView(R.id.iiv_my_wallet)
-    IconItemView iivMyWallet;
+    RelativeLayout iivMyWallet;
     @BindView(R.id.sb_pin)
     SwitchButton sbPin;
     @BindView(R.id.rl_pin_pw)
@@ -36,19 +39,19 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.rl_lock)
     RelativeLayout rlLock;
     @BindView(R.id.iiv_update_lock)
-    IconItemView iivUpdateLock;
+    RelativeLayout iivUpdateLock;
     @BindView(R.id.iiv_clear_lock)
-    IconItemView iivClearLock;
+    RelativeLayout iivClearLock;
     @BindView(R.id.iiv_create_lock)
-    IconItemView iivCreateLock;
+    RelativeLayout iivCreateLock;
     @BindView(R.id.iiv_pin)
-    IconItemView iivPin;
+    RelativeLayout iivPin;
     @BindView(R.id.iiv_pin_update)
-    IconItemView iivPinUpdate;
+    RelativeLayout iivPinUpdate;
     @BindView(R.id.iiv_pin_clear)
-    IconItemView iivPinClear;
+    RelativeLayout iivPinClear;
     @BindView(R.id.iiv_open_lock)
-    IconItemView iivOpenLock;
+    RelativeLayout iivOpenLock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +133,7 @@ public class MainActivity extends BaseActivity {
             R.id.iiv_open_lock,
             R.id.iiv_pin_update,
             R.id.iiv_pin_clear,
+            R.id.rl_pin_pw_test,
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -153,6 +157,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.iiv_pin_clear:
                 PinSettingActivity.jumpTo(mContext,2);
+                break;
+            case R.id.rl_pin_pw_test:
+                PinSettingActivity.jumpTo(mContext,3);
                 break;
         }
     }

@@ -7,19 +7,20 @@
     android:background="#ECF1F5"
     tools:context=".MainActivity">
 
-    <com.zxn.titleview.TitleView
+    <TextView
+        android:gravity="center"
         android:id="@+id/title_common"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_title_height"
         android:background="@color/colorPrimaryDark"
-        app:backIcon="@drawable/icon_return"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleText="安全"
-        app:titleTextColor="@color/c_ffffff" />
+        android:text="安全"
+        android:textColor="@color/c_ffffff"
+        android:textSize="@dimen/sp_16" />
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_my_wallet"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -57,7 +58,7 @@
             android:textColor="@color/c_666666"
             android:visibility="visible" />
 
-        <com.zxn.widget.SwitchButton
+        <zxn.widget.SwitchButton
             android:id="@+id/sb_pin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +74,7 @@
     </RelativeLayout>
 
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_pin"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -91,7 +92,7 @@
         app:text="创建PIN密码"
         app:textColor="@color/c_666666" />
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_pin_update"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -109,7 +110,7 @@
         app:text="修改PIN密码"
         app:textColor="@color/c_666666" />
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_pin_clear"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -147,7 +148,7 @@
             android:textColor="@color/c_666666"
             android:visibility="visible" />
 
-        <com.zxn.widget.SwitchButton
+        <zxn.widget.SwitchButton
             android:id="@+id/sb_lock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -162,7 +163,7 @@
 
     </RelativeLayout>
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_create_lock"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -179,7 +180,7 @@
         app:text="创建手势密码"
         app:textColor="@color/c_666666" />
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_update_lock"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -196,7 +197,7 @@
         app:text="修改手势密码"
         app:textColor="@color/c_666666" />
 
-    <com.zxn.iconitemview.IconItemView
+    <zxn.iconitemview.IconItemView
         android:id="@+id/iiv_clear_lock"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
@@ -213,8 +214,8 @@
         app:text="清除手势密码"
         app:textColor="@color/c_666666" />
 
-    <com.zxn.iconitemview.IconItemView
-        android:id="@+id/iiv_open_lock"
+    <zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_open_pin"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
         android:layout_marginTop="@dimen/dp_1"
@@ -230,6 +231,78 @@
         app:rightTextPadding="@dimen/dp_10"
         app:text="手势验证"
         app:textColor="@color/c_666666" />
+
+    <RelativeLayout
+        android:id="@+id/iiv_open_lock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:background="@color/c_ffffff"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_20"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="手势验证"
+            android:textColor="@color/c_666666" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_pin_pw_test"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:background="@color/c_ffffff"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_20"
+        app:layout_constraintBottom_toTopOf="@id/iiv_open_lock"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_pin_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="PIN验证" />
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="#66ff66" />
+
+        <TextView
+            android:id="@+id/tv_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            tools:text="1.18" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

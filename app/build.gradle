@@ -2,15 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.3"
-
+    //buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "zxn.gesturelock.app"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-
+        versionCode 2
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,11 +32,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':gesturelockview')
-    implementation 'com.zxn.titleview:TitleView:1.0.9'
-    implementation 'com.zxn.iconitemview:iconitemview:1.1.1'
-    implementation 'com.zxn.presenter:PresenterLib:1.4.0'
-    implementation 'com.zxn.widget:expand-widget:1.1.6'
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.jyn.verificationcodeview:verificationcodeview:1.0.1'
+
+
+
+//    implementation 'com.zxn.widget:expand-widget:1.1.6'
+//    implementation 'com.zxn.iconitemview:iconitemview:1.1.1'
+//    implementation 'com.zxn.titleview:TitleView:1.0.9'
+//    implementation 'com.zxn.presenter:PresenterLib:1.4.0'
+//    implementation 'com.zxn.presenter:PresenterLib:1.4.0'
 }

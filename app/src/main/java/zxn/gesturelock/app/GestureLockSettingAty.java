@@ -8,11 +8,10 @@ import android.widget.TextView;
 
 import com.zxn.gesturelock.CustomLockView;
 import com.zxn.gesturelock.LockUtil;
-import com.zxn.presenter.model.CommonEvent;
-import com.zxn.presenter.model.CommonEventBus;
-import com.zxn.presenter.view.BaseActivity;
-import com.zxn.titleview.TitleView;
-import com.zxn.utils.UIUtils;
+//import com.zxn.presenter.model.CommonEvent;
+//import com.zxn.presenter.model.CommonEventBus;
+//import com.zxn.presenter.view.BaseActivity;
+//import com.zxn.utils.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,7 @@ import butterknife.BindView;
 public class GestureLockSettingAty extends BaseActivity {
 
     @BindView(R.id.title_common)
-    TitleView titleCommon;
+    TextView titleCommon;
     @BindView(R.id.tvWarn)
     TextView tvWarn;
     @BindView(R.id.cl)
@@ -86,7 +85,7 @@ public class GestureLockSettingAty extends BaseActivity {
                 public void onComplete(int[] indexs) {
                     mIndexs = indexs;
                     //创建手势密码.
-                    //titleCommon.setTitleText("创建手势密码");
+                    //titleCommon.setText("创建手势密码");
                     //将密码设置在本地.
                     LockUtil.setPwdToDisk(GestureLockSettingAty.this, mIndexs);
                     //开启密码.
@@ -140,7 +139,7 @@ public class GestureLockSettingAty extends BaseActivity {
                         } else if (times == 2) {
                             mIndexs = indexs;
                             //创建手势密码.
-                            //titleCommon.setTitleText("创建手势密码");
+                            //titleCommon.setText("创建手势密码");
                             //将密码设置在本地.
                             LockUtil.setPwdToDisk(GestureLockSettingAty.this, mIndexs);
                             //开启密码.
@@ -235,7 +234,7 @@ public class GestureLockSettingAty extends BaseActivity {
         }
         cl.clearCurrent();
         tvWarn.setText("绘制解锁图案");
-        tvWarn.setTextColor(UIUtils.getColor(R.color.c_474747));
+        tvWarn.setTextColor(getResources().getColor(R.color.c_474747));
     }
 
     @Override
@@ -257,13 +256,13 @@ public class GestureLockSettingAty extends BaseActivity {
     private void onInitTitle() {
         //0:创建,1:修改,2:清除,3:手势密码验证.
         if (mType == 0) {
-            titleCommon.setTitleText("创建手势密码");
+            titleCommon.setText("创建手势密码");
         } else if (mType == 1) {
-            titleCommon.setTitleText("修改手势密码");
+            titleCommon.setText("修改手势密码");
         } else if (mType == 2) {
-            titleCommon.setTitleText("清除手势密码");
+            titleCommon.setText("清除手势密码");
         } else if (mType == 3) {
-            titleCommon.setTitleText("手势密码验证");
+            titleCommon.setText("手势密码验证");
         }
     }
 

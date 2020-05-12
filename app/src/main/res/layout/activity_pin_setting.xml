@@ -6,14 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".PinSettingActivity">
 
-    <com.zxn.titleview.TitleView
+    <TextView
+        android:background="@color/colorPrimaryDark"
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_title_height"
-        android:background="@color/colorPrimary"
-        app:backIcon="@drawable/ic_back_white"
-        app:titleText="@string/text_title_pin_setting"
-        app:titleTextColor="@color/c_ffffff" />
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/c_ffffff"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"

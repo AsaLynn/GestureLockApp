@@ -5,14 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jyn.vcview.VerificationCodeView;
-import com.zxn.gesturelock.LockUtil;
 import com.zxn.gesturelock.SPUtil;
-import com.zxn.presenter.model.CommonEvent;
-import com.zxn.presenter.model.CommonEventBus;
-import com.zxn.presenter.view.BaseActivity;
-import com.zxn.titleview.TitleView;
+//import com.zxn.presenter.model.CommonEvent;
+//import com.zxn.presenter.model.CommonEventBus;
+//import com.zxn.presenter.view.BaseActivity;
 
 import butterknife.BindView;
 
@@ -23,7 +22,7 @@ public class PinSettingActivity extends BaseActivity {
 
     private static final String ARG_PARAM1 = "param1";
     @BindView(R.id.title_view)
-    TitleView titleView;
+    TextView titleView;
     @BindView(R.id.vcv_code)
     VerificationCodeView vcvCode;
     @BindView(R.id.mascot)
@@ -67,7 +66,7 @@ public class PinSettingActivity extends BaseActivity {
 
 
         if (mParam1 == 0) {
-            //titleView.setTitleText("创建PIN密码");
+            //titleView.setText("创建PIN密码");
             vcvCode.setOnCodeFinishListener(new VerificationCodeView.OnCodeFinishListener() {
                 @Override
                 public void onTextChange(View view, String content) {
@@ -83,7 +82,7 @@ public class PinSettingActivity extends BaseActivity {
                 }
             });
         } else if (mParam1 == 1) {
-            //titleView.setTitleText("修改PIN密码");
+            //titleView.setText("修改PIN密码");
 
             vcvCode.setOnCodeFinishListener(new VerificationCodeView.OnCodeFinishListener() {
                 @Override
@@ -114,7 +113,7 @@ public class PinSettingActivity extends BaseActivity {
                 }
             });
         } else if (mParam1 == 2) {
-            //titleView.setTitleText("清除PIN密码");
+            //titleView.setText("清除PIN密码");
             vcvCode.setOnCodeFinishListener(new VerificationCodeView.OnCodeFinishListener() {
                 @Override
                 public void onTextChange(View view, String content) {
@@ -133,19 +132,35 @@ public class PinSettingActivity extends BaseActivity {
                 }
             });
         } else if (mParam1 == 3) {
-            titleView.setTitleText("验证PIN密码");
+            //titleView.setText("验证PIN密码");
+            vcvCode.setOnCodeFinishListener(new VerificationCodeView.OnCodeFinishListener() {
+                @Override
+                public void onTextChange(View view, String content) {
+
+                }
+
+                @Override
+                public void onComplete(View view, String content) {
+                    String pin = SPUtil.getData(mContext, "pin", "").toString();
+                    if (content.equals(pin)) {
+                        showToast("验证pin密码成功");
+                        SPUtil.saveData(mContext, "pin", "");
+                    }
+                    finish();
+                }
+            });
         }
     }
 
     private void onInitTitle() {
         if (mParam1 == 0) {
-            titleView.setTitleText("创建PIN密码");
+            titleView.setText("创建PIN密码");
         } else if (mParam1 == 1) {
-            titleView.setTitleText("修改PIN密码");
+            titleView.setText("修改PIN密码");
         } else if (mParam1 == 2) {
-            titleView.setTitleText("清除PIN密码");
+            titleView.setText("清除PIN密码");
         } else if (mParam1 == 3) {
-            titleView.setTitleText("验证PIN密码");
+            titleView.setText("验证PIN密码");
         }
     }
 
