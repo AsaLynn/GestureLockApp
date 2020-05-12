@@ -59,7 +59,6 @@
 
         <com.zxn.widget.SwitchButton
             android:id="@+id/sb_pin"
-            app:sb_checked_color="#FFBB2E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -67,10 +66,66 @@
             android:layout_marginTop="@dimen/dp_10"
             app:sb_border_width="@dimen/dp_1"
             app:sb_checked="false"
+            app:sb_checked_color="#FFBB2E"
             app:sb_show_indicator="false"
             app:sb_uncheckcircle_radius="@dimen/dp_10" />
 
     </RelativeLayout>
+
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_pin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_pin_pw"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightText=""
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="创建PIN密码"
+        app:textColor="@color/c_666666" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_pin_update"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iiv_pin"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightText=""
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="修改PIN密码"
+        app:textColor="@color/c_666666" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_pin_clear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iiv_pin_update"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightText=""
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="清除PIN密码"
+        app:textColor="@color/c_666666" />
 
     <RelativeLayout
         android:id="@+id/rl_lock"
@@ -82,7 +137,7 @@
         android:paddingRight="@dimen/dp_20"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rl_pin_pw">
+        app:layout_constraintTop_toBottomOf="@id/iiv_pin_clear">
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,7 +163,7 @@
     </RelativeLayout>
 
     <com.zxn.iconitemview.IconItemView
-        android:id="@+id/iiv_update_lock"
+        android:id="@+id/iiv_create_lock"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
         android:layout_marginTop="@dimen/dp_1"
@@ -117,6 +172,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rl_lock"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="创建手势密码"
+        app:textColor="@color/c_666666" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_update_lock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iiv_create_lock"
         app:rightIcon="@drawable/icon_arrow_l"
         app:rightIconPadding="@dimen/dp_20"
         app:rightTextColor="@color/c_b8b8b8"
@@ -139,6 +211,24 @@
         app:rightTextColor="@color/c_b8b8b8"
         app:rightTextPadding="@dimen/dp_10"
         app:text="清除手势密码"
+        app:textColor="@color/c_666666" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_open_lock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_1"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:paddingLeft="@dimen/dp_20"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:rightIcon="@drawable/icon_arrow_l"
+        app:rightIconPadding="@dimen/dp_20"
+        app:rightTextColor="@color/c_b8b8b8"
+        app:rightTextPadding="@dimen/dp_10"
+        app:text="手势验证"
         app:textColor="@color/c_666666" />
 
 

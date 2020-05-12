@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PinSettingActivity">
+
+    <com.zxn.titleview.TitleView
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_title_height"
+        android:background="@color/colorPrimary"
+        app:backIcon="@drawable/ic_back_white"
+        app:titleText="@string/text_title_pin_setting"
+        app:titleTextColor="@color/c_ffffff" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_view">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_60"
+            android:background="@drawable/sp_rec_r10_c_ffffff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.jyn.vcview.VerificationCodeView
+                android:id="@+id/vcv_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:vcv_et_bg="@drawable/et_code_test1"
+                app:vcv_et_cursor="@drawable/et_cursor"
+                app:vcv_et_cursor_visible="false"
+                app:vcv_et_inputType="numberPassword"
+                app:vcv_et_number="4"
+                app:vcv_et_spacing="6dp"
+                app:vcv_et_text_color="#FFC107"
+                app:vcv_et_text_size="6sp" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mascot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:src="@drawable/icon_mascot_close" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
